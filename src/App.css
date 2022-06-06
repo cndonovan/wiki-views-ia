@@ -5,6 +5,11 @@
   margin: 0 auto;
 }
 
+.form {
+  display: flex;
+  gap: 16px;
+}
+
 .article-list-item {
   display: flex;
   align-items: center;

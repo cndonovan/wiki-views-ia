@@ -8,10 +8,13 @@ function buildUrl({ year, month, day }) {
   return `${WIKIPEDIA_BASE_URL}/${year}/${month}/${day}`;
 }
 
+const NUM_RESULT_OPTIONS = [25, 50, 75, 100, 200];
+
 function App() {
   const [year, setYear] = useState(2015);
   const [month, setMonth] = useState(10);
   const [day, setDay] = useState(10);
+  const [numResults, setNumResults] = useState(100);
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -31,7 +34,23 @@ function App() {
   console.log({ articles });
 
   return (
-    <div class='app'>
+    <div className='app'>
+      <form className='form'>
+        <div>
+          <label for='date'>Date:</label>
+          <input type='date' id='date' placeholder={new Date()} />
+        </div>
+        <div>
+          <label for='numResults'>Number of results:</label>
+          <select id='numResults'>
+            {NUM_RESULT_OPTIONS.map((num) => (
+              <option value={num} selected={num === numResults}>
+                {num}
+              </option>
+            ))}
+          </select>
+        </div>
+      </form>
       <ul>
         {articles.map((a) => (
           <li className='article-list-item'>
