@@ -1,1 +1,16 @@
 
+.app {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.article-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  margin: 8px 0;
+  border: 1px solid grey;
+  border-radius: 3px;
+}

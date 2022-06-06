@@ -30,7 +30,18 @@ function App() {
 
   console.log({ articles });
 
-  return <></>;
+  return (
+    <div class='app'>
+      <ul>
+        {articles.map((a) => (
+          <li className='article-list-item'>
+            <h2>{a.article}</h2>
+            <p>Views: {a.views}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default App;
