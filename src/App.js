@@ -15,8 +15,6 @@ export default function App() {
   const [numResults, setNumResults] = useState(100);
   const { articles } = useFetchArticles(date);
 
-  console.log({ date, numResults, articles });
-
   return (
     <div className='app'>
       <Form
