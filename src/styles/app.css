@@ -1,3 +1,4 @@
+/* Use this CSS file for styling (until we need a better */
 
 .app {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -42,7 +43,7 @@
 
 .article-content {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .article-top-days {

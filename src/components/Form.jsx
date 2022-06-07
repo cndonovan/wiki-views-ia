@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import './App.css';
+import 'styles/app.css';
 
 const NUM_RESULT_OPTIONS = [25, 50, 75, 100, 200];
 

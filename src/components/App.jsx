@@ -1,14 +1,10 @@
 import { useState } from 'react';
 import dayjs from 'dayjs';
 
-import Header from './Header';
-import Form from './Form';
-import Articles from './Articles';
-import ErrorState from './fetch-states/ErrorState';
-import LoadingState from './fetch-states/LoadingState';
-
-import useFetchArticles from './hooks/useFetchArticles';
-import './App.css';
+import { Articles, Form, Header } from 'components';
+import { ErrorState, LoadingState } from 'components/fetch-states';
+import { useFetchArticles } from 'hooks';
+import 'styles/app.css';
 
 function getYesterday() {
   return dayjs().subtract(1, 'day');

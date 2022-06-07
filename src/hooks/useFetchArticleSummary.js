@@ -36,7 +36,7 @@ export default function useFetchArticleDetails(mostRecentlyClickedArticle) {
     }
 
     fetchArticleSummary();
-  }, [mostRecentlyClickedArticle]);
+  }, [mostRecentlyClickedArticle, articleToSummary]);
 
   return { articleToSummary, error };
 }

@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import dayjs from 'dayjs';
 
-import useFetchArticleSummary from './hooks/useFetchArticleSummary';
-import useFetchArticleTopThreeDays from './hooks/useFetchArticleTopThreeDays';
-import './App.css';
+import { useFetchArticleSummary, useFetchArticleTopThreeDays } from 'hooks';
+import 'styles/app.css';
 
 const TITLES_TO_SKIP = ['Special:', 'Wikipedia:', 'Portal:', 'Main_Page'];
 

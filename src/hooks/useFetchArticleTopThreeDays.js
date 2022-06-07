@@ -49,7 +49,7 @@ export default function useFetchArticleDetails(mostRecentlyClickedArticle) {
     }
 
     fetchArticleTopThreeDays();
-  }, [mostRecentlyClickedArticle]);
+  }, [mostRecentlyClickedArticle, articleToTopThreeDays]);
 
   return { articleToTopThreeDays, error };
 }
