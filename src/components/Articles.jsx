@@ -28,7 +28,7 @@ export default function Articles({ articles, numResults }) {
   }
 
   return (
-    <ul className='pageWidth'>
+    <ul className='pageWidth' aria-label='wikipedia-articles'>
       {articles
         .filter((a) =>
           TITLES_TO_SKIP.every((title) => !a.article.includes(title))
@@ -50,7 +50,7 @@ export default function Articles({ articles, numResults }) {
                   <h3>Top Three Days</h3>
                   <ul className='article-top-days'>
                     {articleToTopThreeDays[a.article].map((day) => (
-                      <li className='article-top-day'>
+                      <li className='article-top-day' key={day.timestamp}>
                         <div>{dayjs(day.timestamp).format('MMM D, YYYY')}</div>
                         <div>{day.views} views</div>
                       </li>
@@ -60,7 +60,7 @@ export default function Articles({ articles, numResults }) {
               )}
               <div className='article-content'>
                 <button
-                  className='article-more-button'
+                  className='article-button'
                   onClick={() =>
                     isExpanded
                       ? handleClickLess(a.article)
