@@ -8,7 +8,7 @@ export default function Form({ date, numResults, setDate, setNumResults }) {
   return (
     <form className='form'>
       <label htmlFor='date'>
-        Date:
+        Date:{' '}
         <input
           type='date'
           id='date'
@@ -21,7 +21,7 @@ export default function Form({ date, numResults, setDate, setNumResults }) {
         />
       </label>
       <label htmlFor='numResults'>
-        Number of results:
+        Number of results:{' '}
         <select
           id='numResults'
           value={numResults}

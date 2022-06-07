@@ -1,15 +1,10 @@
 import { useState, useEffect } from 'react';
-import dayjs from 'dayjs';
 
-const WIKIPEDIA_BASE_URL =
-  'https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access';
+const WIKIPEDIA_PAGE_SUMMARY_BASE_URL =
+  'https://en.wikipedia.org/api/rest_v1/page/summary';
 
-function buildUrl(date) {
-  const year = dayjs(date).format('YYYY');
-  const month = dayjs(date).format('MM');
-  const day = dayjs(date).format('DD');
-
-  return `${WIKIPEDIA_BASE_URL}/${year}/${month}/${day}`;
+function buildPageSummaryUrl({ article }) {
+  return `${WIKIPEDIA_PAGE_SUMMARY_BASE_URL}/${article}`;
 }
 
 export default function useFetchArticleDetail({ article, month }) {
@@ -18,23 +13,24 @@ export default function useFetchArticleDetail({ article, month }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!date) return;
+    if (!article) return;
 
-    async function fetchArticles() {
+    async function fetchPageSummary() {
       try {
-        const response = await fetch(buildUrl(date));
+        const response = await fetch(buildPageSummaryUrl({ article }));
         const data = await response.json();
-        setArticles(data.items[0].articles);
+        console.log({ data });
+        setSummary(data.items[0].articles);
         setError(null);
       } catch (err) {
         console.error(err);
-        setArticles([]);
+        setSummary('');
         setError(err);
       }
     }
 
-    fetchArticles();
-  }, [date]);
+    fetchPageSummary();
+  }, [article]);
 
-  return { articles, error };
+  return { summary, error };
 }

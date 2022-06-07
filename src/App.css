@@ -10,14 +10,17 @@
   gap: 16px;
 }
 
-.article-list-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.article {
   padding: 8px 16px;
   margin: 8px 0;
   border: 1px solid grey;
   border-radius: 3px;
+}
+
+.article-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .article-title {
@@ -25,4 +28,26 @@
   overflow: hidden;
   white-space: nowrap;
   max-width: 500px;
+}
+
+.article-content {
+  display: flex;
+  justify-content: end;
+}
+
+.article-top-three-days {
+  display: flex;
+}
+
+.article-top-day {
+  margin-right: 16px;
+  padding: 8px 16px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.article-more-button {
+  display: block;
+  margin: 16px 0;
+  cursor: pointer;
 }
