@@ -13,27 +13,35 @@ function buildUrl(date) {
 }
 
 export default function useFetchArticles(date) {
-  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     if (!date) return;
 
     async function fetchArticles() {
+      setIsLoading(true);
       try {
         const response = await fetch(buildUrl(date));
         const data = await response.json();
-        setArticles(data.items[0].articles);
+
+        if (!response.ok) {
+          throw new Error(data.detail);
+        }
+
+        setIsLoading(false);
         setError(null);
+        setArticles(data.items[0].articles);
       } catch (err) {
-        console.error(err);
-        setArticles([]);
+        setIsLoading(false);
         setError(err);
+        setArticles([]);
       }
     }
 
     fetchArticles();
   }, [date]);
 
-  return { articles, error };
+  return { isLoading, error, articles };
 }
