@@ -83,7 +83,7 @@ function App() {
       <ul>
         {articles.slice(0, numResults).map((a) => (
           <li key={a.article} className='article-list-item'>
-            <h2>{a.article}</h2>
+            <h2 className='article-title'>{a.article}</h2>
             <p>Views: {a.views}</p>
           </li>
         ))}
