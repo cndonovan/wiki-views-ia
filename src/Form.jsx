@@ -6,7 +6,7 @@ const NUM_RESULT_OPTIONS = [25, 50, 75, 100, 200];
 
 export default function Form({ date, numResults, setDate, setNumResults }) {
   return (
-    <form className='form'>
+    <form className='form pageWidth'>
       <label htmlFor='date'>
         Date:{' '}
         <input

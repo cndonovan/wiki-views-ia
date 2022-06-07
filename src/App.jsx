@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import dayjs from 'dayjs';
 
+import Header from './Header';
 import Form from './Form';
 import Articles from './Articles';
 import ErrorState from './fetch-states/ErrorState';
@@ -20,6 +21,7 @@ export default function App() {
 
   return (
     <div className='app'>
+      <Header />
       <Form
         date={date}
         numResults={numResults}

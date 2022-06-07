@@ -29,7 +29,7 @@ export default function Articles({ articles, numResults }) {
   }
 
   return (
-    <ul>
+    <ul className='pageWidth'>
       {articles
         .filter((a) =>
           TITLES_TO_SKIP.every((title) => !a.article.includes(title))
